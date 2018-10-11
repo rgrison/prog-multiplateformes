@@ -1,0 +1,8 @@
+{
+  "name": "prog-multiplateformes",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "90a62047"
+}
