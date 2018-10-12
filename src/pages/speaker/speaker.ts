@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Speaker } from '../../speaker';
 
 /**
  * Generated class for the SpeakerPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SpeakerPage {
 
+  public speaker: Speaker;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.speaker = navParams.get('speaker');
   }
 
   ionViewDidLoad() {

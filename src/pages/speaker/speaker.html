@@ -17,6 +17,21 @@
 
 <ion-content padding>
 
-  <h1>{{name}}</h1>
+  <h1>{{ speaker.name }}</h1>
+
+  <h2>Biographie</h2>
+  <p>{{ speaker.bio }}</p>
+
+  <h2>Ses présentations</h2>
+  <i>Cette fonctionnalité n'a pas encoré été implémentée. Veuillez nous excuser pour le désagrément.</i>
+  <!-- {{ speaker.getSessions() }} -->
+
+  <h2>Réseaux sociaux</h2>
+  Retrouvez {{ speaker.name }} sur les réseaux sociaux :
+  <ul>
+    <li ion-item *ngFor="let account of speaker.social">
+      <a href="{{ account.link }}">{{ account.name }}</a>
+    </li>
+  </ul>
 
 </ion-content>

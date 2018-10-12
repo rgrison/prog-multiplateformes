@@ -42,3 +42,4 @@
 
 [ ] créer objets pour Speaker et Session --> meilleur typage
 [ ] réfléchir au nommage des pages pour ne pas avoir de confusion entre page Speaker et classe Speaker
+[ ] afficher les speakers dans l'ordre croissant
