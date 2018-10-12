@@ -1,0 +1,25 @@
+<!--
+  Generated template for the ConferencePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>conference</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>{{ session.title }}</h1>
+  <i>{{ session.language }}</i>
+  <span>{{ session.category }}</span>
+  <span>{{ session.type }}</span>
+  <span *ngFor="let tag of session.tags">{{ tag }}</span>
+  <a href="" *ngFor="let speaker of sessionSpeakers" (click)="openSpeakerDescription(speaker)">Speaker : {{ speaker.name }}</a>
+  <p>{{ session.description }}</p>
+  
+</ion-content>

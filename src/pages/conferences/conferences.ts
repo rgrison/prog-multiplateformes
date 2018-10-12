@@ -36,7 +36,8 @@ export class ConferencesPage implements OnInit {
     });
   }
 
-  openSessionDescription(session) {
-    this.navCtrl.push(ConferencePage, session);
+  openSessionDescription(session: Session) {
+    console.log("Opening session description");
+    this.navCtrl.push(ConferencePage, { 'session' : session });
   }
 }

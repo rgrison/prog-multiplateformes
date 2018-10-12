@@ -64,11 +64,11 @@ export class MyApp {
     fetch(Constants.API_URL + storeName)
       .then(resp => resp.json())
       .then(data => {
-        let sessionsToStore = [];
+        let dataToStore = [];
         for (let key in data) {
-          sessionsToStore.push(createInstance(data[key]));
+          dataToStore.push(createInstance(data[key]));
         }
-        this.storage.set(storeName, sessionsToStore);
+        this.storage.set(storeName, dataToStore);
       })
   };
 }

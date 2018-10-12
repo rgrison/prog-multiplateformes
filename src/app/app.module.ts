@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConferencesPage } from '../pages/conferences/conferences';
 import { ConferenciersPage } from '../pages/conferenciers/conferenciers';
+import { ConferencePage } from '../pages/conference/conference';
 
 import {IonicStorageModule } from '@ionic/storage'
 
@@ -19,6 +20,7 @@ import {IonicStorageModule } from '@ionic/storage'
     HomePage,
     ListPage,
     ConferencesPage,
+    ConferencePage,
     ConferenciersPage
   ],
   imports: [
@@ -32,6 +34,7 @@ import {IonicStorageModule } from '@ionic/storage'
     HomePage,
     ListPage,
     ConferencesPage,
+    ConferencePage,
     ConferenciersPage
   ],
   providers: [
