@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConferencesPage } from '../pages/conferences/conferences';
 import { ConferenciersPage } from '../pages/conferenciers/conferenciers';
 
+import {IonicStorageModule } from '@ionic/storage'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +24,7 @@ import { ConferenciersPage } from '../pages/conferenciers/conferenciers';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

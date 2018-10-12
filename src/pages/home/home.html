@@ -8,11 +8,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h1>Le devfest de foliiiiie.</h1>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ul>
+    <li *ngFor="let session of sessions">{{session.title}}</li>
+  </ul>
 </ion-content>
