@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OnInit } from '@angular/core';
 import * as Constants from "../../constants";
 import { Storage } from '@ionic/storage';
+import { ConferencePage } from '../conference/conference';
 
 
 /**
@@ -34,4 +35,7 @@ export class ConferencesPage implements OnInit {
     });
   }
 
+  openSessionDescription(session) {
+    this.navCtrl.push(ConferencePage, session);
+  }
 }
