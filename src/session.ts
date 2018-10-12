@@ -1,4 +1,4 @@
-class Session {
+export class Session {
     
     private id: number;
     private title: string;

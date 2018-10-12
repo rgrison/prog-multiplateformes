@@ -9,6 +9,8 @@ import { ConferencesPage } from '../pages/conferences/conferences';
 import { ConferenciersPage } from '../pages/conferenciers/conferenciers';
 import { Storage } from '@ionic/storage';
 import * as Constants from "../constants";
+import { Speaker } from '../speaker';
+import { Session } from '../session';
 
 @Component({
   templateUrl: 'app.html'
@@ -42,8 +44,8 @@ export class MyApp {
 
       // Load data in Cache if it's not set
       // TODO check cache
-      this.loadData(Constants.SESSIONS);
-      this.loadData(Constants.SPEAKERS);
+      this.loadData(Constants.SESSIONS, json => { return new Session(json) });
+      this.loadData(Constants.SPEAKERS, json => { return new Speaker(json) });
     });
   }
 
@@ -56,16 +58,17 @@ export class MyApp {
   /**
    * To load data into cache if it's not done yet
    * @param storeName Name of data to load
+   * @param createInstance function creating an instance of an object (e.g. Speaker) from a JSON document
    */
-  private loadData = function(storeName) {
+  private loadData = function(storeName, createInstance) {
     fetch(Constants.API_URL + storeName)
       .then(resp => resp.json())
       .then(data => {
         let sessionsToStore = [];
         for (let key in data) {
-          sessionsToStore.push(data[key]);
+          sessionsToStore.push(createInstance(data[key]));
         }
         this.storage.set(storeName, sessionsToStore);
       })
-  };  
+  };
 }
