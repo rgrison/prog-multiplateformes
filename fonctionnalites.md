@@ -7,11 +7,11 @@
 
 ## conférences
 
-[ ] consulter les conférences
-  [ ] lister les conférences, avec lien vers détails
+[x] consulter les conférences
+  [x] lister les conférences, avec lien vers détails
 
 [ ] consulter les détails
-  [ ] titre, résumé, présentateurs, lieu, …
+  [x] titre, résumé, présentateurs, lieu, …
   [ ] bouton pour prise de notes
 
 [ ] saisie de notes
@@ -22,11 +22,11 @@
 
 ## conférenciers
 
-[ ] consulter les présentateurs
-  [ ] liste, avec lien vers détails du présentateur
+[x] consulter les présentateurs
+  [x] liste, avec lien vers détails du présentateur
 
-[ ] détails pour un présentateur (nom, biographie, liens vers ses présentations)
-  [ ] _bouton pour ajouter présentateur aux contacts_
+[x] détails pour un présentateur (nom, biographie, liens vers ses présentations)
+[ ] _bouton pour ajouter présentateur aux contacts_
 
 
 ## Agenda
@@ -40,6 +40,6 @@
 
 ## Améliorations
 
-[ ] créer objets pour Speaker et Session --> meilleur typage
+[x] créer objets pour Speaker et Session --> meilleur typage
 [ ] réfléchir au nommage des pages pour ne pas avoir de confusion entre page Speaker et classe Speaker
 [ ] afficher les speakers dans l'ordre croissant

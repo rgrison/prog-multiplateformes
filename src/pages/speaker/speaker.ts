@@ -27,37 +27,23 @@ export class SpeakerPage implements OnInit {
   }
 
   ngOnInit() {
+
+    // TODO: extract this piece of code in a method and call it
     this.storage.get(Constants.SESSIONS).then(sessionsStored => {
       let speakerSessions: Array<Session> = [];
 
+      console.log(`speaker has id ${this.speaker.id}`);
       sessionsStored.forEach(session => {
-          console.log(`current session: ${session.id}`);
-          if (this.speaker.id in session.speakers) {
+          if (session.speakers.indexOf(this.speaker.id) > -1) {
+              console.log(`adding session ${session.id} to speakerSessions`);
               speakerSessions.push(session);
           }
       });
-
-      console.log(`récupéré les sessions suivantes : ${speakerSessions}`);
       this.speakerSessions = speakerSessions;
     });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpeakerPage');
-  }
-
-  getSessions() {
-    this.storage.get(Constants.SESSIONS).then(sessionsStored => {
-      let speakerSessions: Array<Session> = [];
-
-      sessionsStored.array.forEach(session => {
-          if (this.speaker.id in session.speakers) {
-              speakerSessions.push(session);
-          }
-      });
-
-      this.speakerSessions = speakerSessions;
-    });
-
   }
 }
