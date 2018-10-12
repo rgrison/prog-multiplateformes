@@ -26,10 +26,7 @@ export class ConferenciersPage implements OnInit {
   
   ngOnInit() {
     this.storage.get(Constants.SPEAKERS).then(speakersStored => {
-      console.log('setting this.speakers', speakersStored);
-    
       this.speakers = speakersStored;
-      console.log(`loaded array: ${this.speakers}`);
     });
   }
 
@@ -38,8 +35,8 @@ export class ConferenciersPage implements OnInit {
   }
 
   // redirects to the page with the speaker details
-  speakerDetails(speakerName) {
-    this.navCtrl.push('speaker', {speakerName});
+  showSpeakerDetails(speakerName) {
+    this.navCtrl.push('SpeakerPage', {'speaker': speakerName});
   }
 
 }

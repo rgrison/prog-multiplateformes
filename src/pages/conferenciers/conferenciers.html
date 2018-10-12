@@ -16,10 +16,11 @@
 
 <ion-content padding>
 
-  <ul>
-    <li *ngFor="let speaker of speakers">
+  <ion-list>
+    <!-- TODO: improve output of the elements of the list, cf example -->
+    <button ion-item *ngFor="let speaker of speakers" (click)="showSpeakerDetails(speaker)">
       {{ speaker.name }}
-    </li>
-  </ul>
+    </button>
+  </ion-list>
 
 </ion-content>
