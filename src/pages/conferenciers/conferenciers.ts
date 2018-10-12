@@ -26,10 +26,7 @@ export class ConferenciersPage implements OnInit {
   
   ngOnInit() {
     this.storage.get(Constants.SPEAKERS).then(speakersStored => {
-      console.log('setting this.speakers', speakersStored);
-    
       this.speakers = speakersStored;
-      console.log(`loaded array: ${this.speakers}`);
     });
   }
 

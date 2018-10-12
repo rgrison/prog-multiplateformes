@@ -23,8 +23,14 @@
   <p>{{ speaker.bio }}</p>
 
   <h2>Ses présentations</h2>
-  <i>Cette fonctionnalité n'a pas encoré été implémentée. Veuillez nous excuser pour le désagrément.</i>
-  <!-- {{ speaker.getSessions() }} -->
+  <!-- <i>Cette fonctionnalité n'a pas encoré été implémentée. Veuillez nous excuser pour le désagrément.</i> -->
+
+  <!-- TODO: link to go to the Session view to see the details. use push to allow user to go back to speaker view -->
+  <ion-list>
+    <ion-item *ngFor="let session of speakerSessions">
+      session.title
+    </ion-item>
+  </ion-list>
 
   <h2>Réseaux sociaux</h2>
   Retrouvez {{ speaker.name }} sur les réseaux sociaux :
