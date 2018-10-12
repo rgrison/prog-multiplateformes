@@ -10,15 +10,15 @@ import { Storage } from '@ionic/storage'
 })
 export class HomePage implements OnInit {
 
+  sessions = null;
+
   constructor(public navCtrl: NavController, private storage: Storage) {
 
   }
 
   ngOnInit(): void {
-    var sessions = null;
-
     this.storage.get(Constants.SESSIONS).then( sessionsStored => {
-      sessions = sessionsStored;
+      this.sessions = sessionsStored;
     });
 
   }

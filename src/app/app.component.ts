@@ -61,7 +61,11 @@ export class MyApp {
     fetch(Constants.API_URL + storeName)
       .then(resp => resp.json())
       .then(data => {
-        this.storage.set(storeName, data);
+        let sessionsToStore = [];
+        for (let key in data) {
+          sessionsToStore.push(data[key]);
+        }
+        this.storage.set(storeName, sessionsToStore);
       })
   };  
 }
