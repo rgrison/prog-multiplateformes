@@ -1,4 +1,4 @@
-class Speaker {
+export class Speaker {
     private id: number;
     public name: string;
     public bio: string;
@@ -17,6 +17,11 @@ class Speaker {
             let socialNetwork = socials[i];
             this.social.push({name: socialNetwork['name'], link: socialNetwork['link']});
         }
+    }
+
+    getSessions() {
+        // TODO: get the sessions of the speaker
+        //      (get the id and then the title + link to the session view when available)
     }
 
 }

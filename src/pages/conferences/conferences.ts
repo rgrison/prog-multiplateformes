@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OnInit } from '@angular/core';
 import * as Constants from "../../constants";
 import { Storage } from '@ionic/storage';
+import { Session } from '../../session';
 
 
 /**
@@ -19,7 +20,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ConferencesPage implements OnInit {
 
-  sessions = null;
+  public sessions: Array<Session> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
