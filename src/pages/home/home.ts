@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.storage.get(Constants.SESSIONS).then( sessionsStored => {
+    this.storage.get(Constants.SESSIONS).then(sessionsStored => {
       this.sessions = sessionsStored;
     });
 
