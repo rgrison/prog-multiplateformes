@@ -22,8 +22,7 @@ import { SpeakerPage } from '../pages/speaker/speaker';
     ListPage,
     ConferencesPage,
     ConferencePage,
-    ConferenciersPage,
-    SpeakerPage
+    ConferenciersPage
   ],
   imports: [
     BrowserModule,
@@ -37,8 +36,7 @@ import { SpeakerPage } from '../pages/speaker/speaker';
     ListPage,
     ConferencesPage,
     ConferencePage,
-    ConferenciersPage,
-    SpeakerPage
+    ConferenciersPage
   ],
   providers: [
     StatusBar,

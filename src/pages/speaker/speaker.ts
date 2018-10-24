@@ -31,15 +31,9 @@ export class SpeakerPage implements OnInit {
     // TODO: extract this piece of code in a method and call it
     this.storage.get(Constants.SESSIONS).then(sessionsStored => {
       let speakerSessions: Array<Session> = [];
-  
-      console.log(`speaker has id ${this.speaker.id}`);
-      console.log('Getting sessions…');
       sessionsStored.forEach(session => {
         const found = session.speakers.indexOf(this.speaker.id) > -1;
-        console.log(`speaker ${this.speaker.id} found in current session: ${session.speakers}? ${found}`);
-        console.log(`speaker id type: ${this.speaker.id.constructor.name} ; speakers id types: ${session.speakers.map(id => id.constructor.name)}`);
         if (found) {
-          console.log(`adding session ${session.id} to speakerSessions`);
           speakerSessions.push(session);
         }
       });

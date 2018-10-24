@@ -10,6 +10,7 @@ export class Speaker {
     public name: string;
     public bio: string;
     public company: string;
+    public photoUrl: string;
     public social: Array<{name: string, link: string}> = [];
 
     constructor(speaker: JSON) {
@@ -17,6 +18,7 @@ export class Speaker {
         this.name    = speaker['name'   ];
         this.bio     = speaker['bio'    ];
         this.company = speaker['company'];
+        this.photoUrl = 'https://devfest.gdgnantes.com/' + speaker['photoUrl'];
         
         this.social = [];
         let socials = speaker['socials'];
