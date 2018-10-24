@@ -1,6 +1,6 @@
 export class Session {
     
-    private id: number;
+    public id: number;
     public title: string;
     public titleMobile: string;
     public description: string;

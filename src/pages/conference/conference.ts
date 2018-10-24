@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { Session } from '../../Session';
 import { Speaker } from '../../speaker';
 import { SpeakerPage } from '../speaker/speaker';
+import { NotesPage } from '../notes/notes';
 import * as Constants from "../../constants";
 
 /**
@@ -49,6 +50,9 @@ export class ConferencePage {
   openSpeakerDescription(speaker: Speaker) {
     console.log("Opening speaker description");
     this.navCtrl.push(SpeakerPage, { 'speaker' : speaker });
-    console.log("PLEASE speaker description");
+  }
+
+  openMyNotes() {
+    this.navCtrl.push(NotesPage, { 'sessionId' : this.session.id, 'sessionTitle' : this.session.title });
   }
 }
