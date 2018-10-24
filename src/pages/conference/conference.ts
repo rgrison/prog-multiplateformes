@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Session } from '../../Session';
 import { Speaker } from '../../speaker';
+import { SpeakerPage } from '../speaker/speaker';
 import * as Constants from "../../constants";
 
 /**
@@ -46,7 +47,8 @@ export class ConferencePage {
   }
 
   openSpeakerDescription(speaker: Speaker) {
-    console.log("Opening session description");
-    // this.navCtrl.push(SpeakerPage, { 'speaker' : speaker });
+    console.log("Opening speaker description");
+    this.navCtrl.push(SpeakerPage, { 'speaker' : speaker });
+    console.log("PLEASE speaker description");
   }
 }
