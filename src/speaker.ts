@@ -13,7 +13,7 @@ export class Speaker {
     public social: Array<{name: string, link: string}> = [];
 
     constructor(speaker: JSON) {
-        this.id      = speaker['id'     ];
+        this.id      = Number(speaker['id']);
         this.name    = speaker['name'   ];
         this.bio     = speaker['bio'    ];
         this.company = speaker['company'];
