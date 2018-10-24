@@ -26,7 +26,7 @@ export class ConferenciersPage implements OnInit {
   
   ngOnInit() {
     this.storage.get(Constants.SPEAKERS).then(speakersStored => {
-      this.speakers = speakersStored;
+      this.speakers = speakersStored.sort((speaker1, speaker2) => {return speaker1.name.localeCompare(speaker2.name)});
     });
   }
 

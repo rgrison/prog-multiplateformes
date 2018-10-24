@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { Session } from '../../Session';
+import { Session } from '../../session';
 import { Speaker } from '../../speaker';
 import { SpeakerPage } from '../speaker/speaker';
 import { NotesPage } from '../notes/notes';

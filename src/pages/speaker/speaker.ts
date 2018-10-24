@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Speaker } from '../../speaker';
 import { Storage } from '@ionic/storage';
 import { Session } from '../../session';
+import { ConferencePage } from '../conference/conference'
 import * as Constants from '../../constants';
 
 /**
@@ -27,22 +28,26 @@ export class SpeakerPage implements OnInit {
   }
 
   ngOnInit() {
-
     // TODO: extract this piece of code in a method and call it
     this.storage.get(Constants.SESSIONS).then(sessionsStored => {
       let speakerSessions: Array<Session> = [];
-
-      console.log(`speaker has id ${this.speaker.id}`);
       sessionsStored.forEach(session => {
-          if (session.speakers.indexOf(this.speaker.id) > -1) {
-              console.log(`adding session ${session.id} to speakerSessions`);
-              speakerSessions.push(session);
-          }
+        const found = session.speakers.indexOf(this.speaker.id) > -1;
+        if (found) {
+          speakerSessions.push(session);
+        }
       });
       this.speakerSessions = speakerSessions;
     });
   }
 
+  // TODO: same as ConferencePage.openSessionDescription, extract it and make it
+  //       available to every class
+  openSessionDescription(session:Session) {
+    console.log("Opening session description from speaker's details page");
+    this.navCtrl.push(ConferencePage, { 'session' : session });
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpeakerPage');
   }

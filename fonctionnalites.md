@@ -28,6 +28,8 @@
 [x] détails pour un présentateur (nom, biographie, liens vers ses présentations)
 [ ] _bouton pour ajouter présentateur aux contacts_
 
+[x] quand clique sur nom de la conférence --> redirige vers page de celle-ci, emmène vers page de la conférence
+
 
 ## Agenda
 
@@ -42,4 +44,4 @@
 
 [x] créer objets pour Speaker et Session --> meilleur typage
 [ ] réfléchir au nommage des pages pour ne pas avoir de confusion entre page Speaker et classe Speaker
-[ ] afficher les speakers dans l'ordre croissant
+[x] afficher les speakers dans l'ordre alphabétique

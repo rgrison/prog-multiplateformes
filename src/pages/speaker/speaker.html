@@ -19,6 +19,8 @@
 
   <h1>{{ speaker.name }}</h1>
 
+  <img alt="Picture of the speaker" src="{{speaker.photoUrl}}" />
+
   <h2>Biographie</h2>
   <p>{{ speaker.bio }}</p>
 
@@ -28,9 +30,7 @@
   <!-- TODO: link to go to the Session view to see the details. use push to allow user to go back to speaker view -->
   <ion-list>
     <ion-item *ngFor="let session of speakerSessions">
-      <ion-label>
-        {{ session.title }}
-      </ion-label>
+        <button ion-item (click)="openSessionDescription(session)">➡️ {{session.title}}</button>
     </ion-item>
   </ion-list>
 
