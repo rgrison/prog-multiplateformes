@@ -19,7 +19,7 @@
   <span>{{ session.category }}</span>
   <span>{{ session.type }}</span>
   <span *ngFor="let tag of session.tags">{{ tag }}</span>
-  <a href="" *ngFor="let speaker of sessionSpeakers" (click)="openSpeakerDescription(speaker)">Speaker : {{ speaker.name }}</a>
+  <button *ngFor="let speaker of sessionSpeakers" (click)="openSpeakerDescription(speaker)">Speaker : {{ speaker.name }}</button>
   <p>{{ session.description }}</p>
   
 </ion-content>

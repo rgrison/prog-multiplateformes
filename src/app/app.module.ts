@@ -13,6 +13,7 @@ import { ConferenciersPage } from '../pages/conferenciers/conferenciers';
 import { ConferencePage } from '../pages/conference/conference';
 
 import {IonicStorageModule } from '@ionic/storage'
+import { SpeakerPage } from '../pages/speaker/speaker';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {IonicStorageModule } from '@ionic/storage'
     ListPage,
     ConferencesPage,
     ConferencePage,
-    ConferenciersPage
+    ConferenciersPage,
+    SpeakerPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {IonicStorageModule } from '@ionic/storage'
     ListPage,
     ConferencesPage,
     ConferencePage,
-    ConferenciersPage
+    ConferenciersPage,
+    SpeakerPage
   ],
   providers: [
     StatusBar,
