@@ -12,8 +12,11 @@ export class Session {
     public track: string;
     public tags: Array<string> = [];
     public speakers: Array<number> = [];
+    public startTime: string;
+    public endTime: string;
+    public date: string;
 
-    constructor(sessionJson) {
+    constructor(sessionJson, times: {[sessionId: string]: {date: string, startTime: string, endTime: string}}) {
         this.id = sessionJson['id'];
         this.title = sessionJson['title'];
         this.titleMobile = sessionJson['titleMobile'];
@@ -42,5 +45,11 @@ export class Session {
                 this.speakers.push(speakerId);
             });
         }
+
+        // setting date & time of the conference
+        const time     = times[this.id];
+        this.startTime = time['startTime'];
+        this.endTime   = time['endTime'];
+        this.date      = time['date']
     }
 }

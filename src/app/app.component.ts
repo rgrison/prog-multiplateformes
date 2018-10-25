@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 import * as Constants from "../constants";
 import { Speaker } from '../speaker';
 import { Session } from '../session';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   templateUrl: 'app.html'
@@ -42,18 +43,42 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      // Load sessions and speakers data in local storage at each opening of the app
-      this.loadData(Constants.SESSIONS, json => { return new Session(json) });
-      this.loadData(Constants.SPEAKERS, json => { return new Speaker(json) });
-      
       // Create a store for Notes if it doesn't exist yet
       this.storage.get(Constants.NOTES).then(notesStoredList => {
-        console.log("Notes storage is :" + (!notesStoredList));
+        console.log("Notes storage exists :" + (!notesStoredList));
         if (!notesStoredList) {
           console.log("Notes storage was null, so creating an empty one...");
           this.storage.set(Constants.NOTES, {});
         }
       });
+
+      // Load sessions and speakers data in local storage at each opening of the app
+      this.loadData(Constants.SPEAKERS, json => { return new Speaker(json) });
+
+      // needs a more complex instanciation function, because we need to retrieve the conference schedule
+      // generating a sessionId -> date & time map
+      fetch(Constants.API_URL + "schedule")
+        .then(resp => resp.json())
+        .then(schedule => {
+          var times: { [sessionId: string]: {date: string, startTime: string, endTime: string} } = {};
+          for (const day of schedule) {
+            for (const timeslot of day['timeslots']) {
+              for (const session of timeslot['sessions']) {
+                times[session[0]] = {date: day['date'], startTime: timeslot['startTime'], endTime: timeslot['endTime']};
+              }
+            }
+          }
+
+          // loading session data in cache
+          this.loadData(Constants.SESSIONS, json => {
+            console.log('creating new session');
+            return new Session(json, times);
+          });
+        });
+
+
+      // TODO: get value for startTime and endTime
+      // TODO: get json from /schedule
     });
   }
 

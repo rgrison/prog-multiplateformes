@@ -15,5 +15,8 @@
 
 
 <ion-content padding>
-  <button ion-item *ngFor="let session of sessions" (click)="openSessionDescription(session)">{{session.title}}</button>
+  <button ion-item *ngFor="let session of sessions" (click)="openSessionDescription(session)">
+    <span class="sessionTime"> {{session.startTime}} - {{session.endTime}} </span> 
+    {{session.title}}
+  </button>
 </ion-content>
