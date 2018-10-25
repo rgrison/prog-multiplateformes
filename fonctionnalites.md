@@ -1,9 +1,9 @@
 # Fonctionnalités attendues pour le projet
 
-[ ] écran d'accueil
-  [ ] consulter les conférences
-  [ ] consulter les conférenciers
-  [ ] dates de l'événement, logo
+[x] écran d'accueil
+  [x] consulter les conférences
+  [x] consulter les conférenciers
+  [x] dates de l'événement, logo
 
 ## conférences
 

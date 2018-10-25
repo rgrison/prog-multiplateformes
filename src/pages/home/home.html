@@ -8,11 +8,25 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- TODO: insérer logo de l'IMT Atlantique -->
+  <img src="../../assets/imgs/logo-IMTA.jpg" alt="Logo de l'IMT Atlantique" />
+
   <h1>DevFest Nantes 2018</h1>
 
+  
   <p>
-    Les 18 et 19 octobre 2018 à la Cité des Congrès de Nantes.
+    Les 18 et 19 octobre 2018 à la Cité des Congrès de Nantes. Organisé par le GDG de Nantes.<br />
+    Le DevFest, c'est LE festival des développeurs organisé par des développeurs&nbsp;! Tout sur le Mobile, IoT, Web et Cloud présenté par des experts du monde entier pour une des plus grandes conférences techniques.
   </p>
 
+  <p>
+    Le DevFest Nantes vous propose sur 2 jours 70 conférences avec 81 conférenciers, dans 4 salles différentes. On n'attend pas moins de 1 800 participants par jour&nbsp;! 
+  </p>
+
+  <button ion-item *ngFor="let page of pages" (click)="openPage(page)">
+    {{page.title}}
+  </button>
+
   <!-- TODO: insert links to sessions and speakers list -->
+
 </ion-content>
