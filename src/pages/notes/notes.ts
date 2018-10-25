@@ -18,11 +18,12 @@ import * as Constants from "../../constants";
 })
 export class NotesPage {
 
-  public notes: Notes;
+  public notes: Notes = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     var sessionId = navParams.get('sessionId');
     var sessionTitle = navParams.get('sessionTitle');
+    this.loadNotes(sessionId, sessionTitle);
   }
 
   ionViewDidLoad() {
@@ -30,24 +31,37 @@ export class NotesPage {
   }
 
   private loadNotes(sessionId, sessionTitle) {
-    this.storage.get(Constants.NOTES).then(notesStored => {
-      var notesList = notesStored;
+    console.log("Loading notes...")
+    
+    this.storage.get(Constants.NOTES).then(notesStoredList => {
       var notesJson = {
         'text' : "",
         'sessionTitle': sessionTitle,
         'sessionId' : sessionId
       };
 
-      if (notesList) {
-        notesList.forEach(notesInstance => {
-          
-          if (notesInstance.sessionId == sessionId) {
-            notesJson['text'] = notesInstance.text;
-          }
-        });
+      if (notesStoredList) {
+        var notesStored = notesStoredList['' + sessionId];
+
+        if (notesStored) {
+          notesJson['text'] = notesStored.text;
+        }
       }
+      console.log("Text loaded : '" + notesJson['text'] + "'");
       this.notes = new Notes(notesJson);
     });
   }
 
+  private saveNotes() {
+    console.log("Saving notes...")
+
+    this.storage.get(Constants.NOTES).then(notesStored => {
+      console.log("Notes saved : '" + this.notes.text + "' ; " + this.notes.sessionTitle + " ; " + this.notes.sessionId);
+      notesStored[this.notes.sessionId] = this.notes;
+      this.storage.set(Constants.NOTES, notesStored);
+      if (this.navCtrl.canGoBack) {
+        this.navCtrl.pop();
+      }
+    });
+  }
 }

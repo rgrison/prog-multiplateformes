@@ -42,10 +42,18 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      // Load data in Cache if it's not set
-      // TODO check cache
+      // Load sessions and speakers data in local storage at each opening of the app
       this.loadData(Constants.SESSIONS, json => { return new Session(json) });
       this.loadData(Constants.SPEAKERS, json => { return new Speaker(json) });
+      
+      // Create a store for Notes if it doesn't exist yet
+      this.storage.get(Constants.NOTES).then(notesStoredList => {
+        console.log("Notes storage is :" + (!notesStoredList));
+        if (!notesStoredList) {
+          console.log("Notes storage was null, so creating an empty one...");
+          this.storage.set(Constants.NOTES, {});
+        }
+      });
     });
   }
 
