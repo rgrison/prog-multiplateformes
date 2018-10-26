@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <h1>{{ notes.sessionTitle }}</h1>
-  <textarea [(ngModel)]="this.notes.text" [innerText]="this.notes.text"></textarea>
-  <button (click)="saveNotes()">Enregistrer</button>
+  <h3>{{ notes.sessionTitle }}</h3>
+  <textarea class="saisie" [(ngModel)]="this.notes.text" [innerText]="this.notes.text"></textarea>
+  <button class="enregistrer" (click)="saveNotes()">Enregistrer</button>
 </ion-content>

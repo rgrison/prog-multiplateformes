@@ -7,20 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>conference</ion-title>
+    <ion-title>Conférence</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>{{ session.title }}</h1>
-  <i>{{ session.language }}</i>
-  <span>{{ session.category }}</span>
+  <h3>{{ session.title }}</h3>
   <span>{{ session.type }}</span>
+  <i> ({{ session.language }})</i>
+  <br>
+  <span>Catégorie {{ session.category }} </span>
+  <br>
   <span *ngFor="let tag of session.tags">{{ tag }}</span>
-  <button *ngFor="let speaker of sessionSpeakers" (click)="openSpeakerDescription(speaker)">Speaker : {{ speaker.name }}</button>
-  <button (click)="openMyNotes()">Mes notes</button>
+  <br>
+  <button class="speaker" *ngFor="let speaker of sessionSpeakers" (click)="openSpeakerDescription(speaker)">{{ speaker.name }}</button>
+  <br>
+  <button class="notes" (click)="openMyNotes()">Mes notes</button>
+  <h6>Présentation</h6>
   <p>{{ session.description }}</p>
   
 </ion-content>

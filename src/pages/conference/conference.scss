@@ -1,3 +1,20 @@
 page-conference {
+    .speaker {
+        background-color: brown;
+        color: beige;
+        margin-top: 0.1em;
+        margin-right: 0.1em;
+        padding: 0.5em;
+    }
 
+    .notes {
+        background-color: darkslategray;
+        color: beige;
+        font-size: 1.7em;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.2em;
+        padding: 0.5em;
+    }
 }
