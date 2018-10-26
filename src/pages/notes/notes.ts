@@ -18,7 +18,7 @@ import * as Constants from "../../constants";
 })
 export class NotesPage {
 
-  public notes: Notes = null;
+  public notes: Notes = new Notes({});
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     var sessionId = navParams.get('sessionId');
@@ -39,7 +39,8 @@ export class NotesPage {
         'sessionTitle': sessionTitle,
         'sessionId' : sessionId
       };
-
+      console.log("Checkpoint");
+      console.log(notesStoredList);
       if (notesStoredList) {
         var notesStored = notesStoredList['' + sessionId];
 
