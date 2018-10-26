@@ -34,6 +34,8 @@
 ## Agenda
 
 [ ] proposer une présentation de l'agenda du DevFest
+  [x] afficher l'heure devant chaque nom de conférence
+  [ ] trier par ordre croissant de jour et d'heure (mettre séparateurs dans liste des conférences pour montrer quel jour c'est. Essayer de le faire dynamiquement ?)
 
 
 ## Autres
