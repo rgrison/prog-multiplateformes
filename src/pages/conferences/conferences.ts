@@ -22,6 +22,7 @@ import { Session } from '../../session';
 export class ConferencesPage implements OnInit {
 
   public sessions: Array<Session> = [];
+  public sessionsByDay: { [day: string]: Session } = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
@@ -33,7 +34,24 @@ export class ConferencesPage implements OnInit {
   ngOnInit() {
     this.storage.get(Constants.SESSIONS).then(sessionsStored => {
       this.sessions = sessionsStored;
+
+      // sorting sessions by day, then sorting by hour
+      const dates = Array.from(new Set(this.sessions.map(session => session.date)));
+      let sessionsByDay = {};
+      dates.forEach(date => sessionsByDay[date] = []);
+  
+      this.sessions.forEach(session => sessionsByDay[session.date].push(session));
+
+      // sorting sessions by beginning time
+      Object.keys(sessionsByDay).forEach(day => {
+        this.sessionsByDay[day] = sessionsByDay[day].sort((session1, session2) => session1.startTime.localeCompare(session2.startTime));
+      });
     });
+
+  }
+
+  days() {
+    return Object.keys(this.sessionsByDay);
   }
 
   openSessionDescription(session: Session) {

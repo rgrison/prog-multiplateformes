@@ -24,7 +24,7 @@ import { NotesPage } from '../pages/notes/notes';
     ConferencesPage,
     ConferencePage,
     ConferenciersPage,
-    SpeakerPage,
+    // SpeakerPage,
     NotesPage
   ],
   imports: [
@@ -40,7 +40,7 @@ import { NotesPage } from '../pages/notes/notes';
     ConferencesPage,
     ConferencePage,
     ConferenciersPage,
-    SpeakerPage,
+    // SpeakerPage,
     NotesPage
   ],
   providers: [
