@@ -24,10 +24,17 @@ $app-direction: ltr;
 
 .sessionTime {
   color: darkgrey;
-  font-size: 0.8em;
+  font-size: 0.6em;
   margin-right: 1em;
 }
 
+.day {
+  background-color: lightgray;
+  // font-size: 1.5em;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0.5em;
+}
 
 
 // Named Color Variables
