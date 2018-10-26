@@ -18,7 +18,7 @@
   
 
   <div *ngFor="let day of days()">
-    <span class="day"> Conférences du {{day}} </span>
+    <h3 class="day"> Conférences du {{day}} </h3>
 
     <button ion-item *ngFor="let session of sessionsByDay[day]" (click)="openSessionDescription(session)">
       <span class="sessionTime"> {{session.startTime}} - {{session.endTime}} </span> 
